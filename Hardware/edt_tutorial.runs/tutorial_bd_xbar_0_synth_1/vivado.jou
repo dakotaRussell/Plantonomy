@@ -1,0 +1,14 @@
+#-----------------------------------------------------------
+# Vivado v2023.2 (64-bit)
+# SW Build 4029153 on Fri Oct 13 20:13:54 MDT 2023
+# IP Build 4028589 on Sat Oct 14 00:45:43 MDT 2023
+# SharedData Build 4025554 on Tue Oct 10 17:18:54 MDT 2023
+# Start of session at: Fri Nov 10 12:48:29 2023
+# Process ID: 13135
+# Current directory: /home/dev/edt_tutorial/edt_tutorial.runs/tutorial_bd_xbar_0_synth_1
+# Command line: vivado -log tutorial_bd_xbar_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source tutorial_bd_xbar_0.tcl
+# Log file: /home/dev/edt_tutorial/edt_tutorial.runs/tutorial_bd_xbar_0_synth_1/tutorial_bd_xbar_0.vds
+# Journal file: /home/dev/edt_tutorial/edt_tutorial.runs/tutorial_bd_xbar_0_synth_1/vivado.jou
+# Running On: dev-HP-Z640-Workstation, OS: Linux, CPU Frequency: 2595.711 MHz, CPU Physical cores: 8, Host memory: 33548 MB
+#-----------------------------------------------------------
+source tutorial_bd_xbar_0.tcl -notrace
