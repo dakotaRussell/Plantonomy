@@ -1,0 +1,60 @@
+14:59:19 DEBUG : Logs will be stored at '/home/dev/Projects/Plantonomy/Software/IDE.log'.
+14:59:22 INFO  : Launching XSCT server: xsct -n  -interactive /home/dev/Projects/Plantonomy/Software/temp_xsdb_launch_script.tcl
+14:59:22 INFO  : Registering command handlers for Vitis TCF services
+14:59:23 INFO  : Platform repository initialization has completed.
+14:59:25 INFO  : XSCT server has started successfully.
+14:59:25 INFO  : Successfully done setting XSCT server connection channel  
+14:59:25 INFO  : plnx-install-location is set to ''
+14:59:25 INFO  : Successfully done setting workspace for the tool. 
+14:59:25 INFO  : Successfully done query RDI_DATADIR 
+14:59:46 INFO  : Platform 'tutorial_bd_wrapper' is added to custom repositories.
+14:59:47 INFO  : [Import] Updating active build configuration of the system project 'tutorial_system' to 'Debug' after the import.
+15:00:20 INFO  : Result from executing command 'getProjects': tutorial_bd_wrapper
+15:00:20 INFO  : Result from executing command 'getPlatforms': tutorial_bd_wrapper|/home/dev/Projects/Plantonomy/Software/tutorial_bd_wrapper/export/tutorial_bd_wrapper/tutorial_bd_wrapper.xpfm;xilinx_zcu102_base_202320_1|/home/dev/xilinx/Vitis/2023.2/base_platforms/xilinx_zcu102_base_202320_1/xilinx_zcu102_base_202320_1.xpfm;xilinx_zcu102_base_dfx_202320_1|/home/dev/xilinx/Vitis/2023.2/base_platforms/xilinx_zcu102_base_dfx_202320_1/xilinx_zcu102_base_dfx_202320_1.xpfm;xilinx_zcu104_base_202320_1|/home/dev/xilinx/Vitis/2023.2/base_platforms/xilinx_zcu104_base_202320_1/xilinx_zcu104_base_202320_1.xpfm
+15:00:24 INFO  : Checking for BSP changes to sync application flags for project 'tutorial'...
+15:02:32 INFO  : Connected to target on host '127.0.0.1' and port '3121'.
+15:02:32 INFO  : Jtag cable 'Digilent Zybo Z7 210351A77FB1A' is selected.
+15:02:32 INFO  : 'jtag frequency' command is executed.
+15:02:32 INFO  : Context for 'APU' is selected.
+15:02:32 INFO  : System reset is completed.
+15:02:35 INFO  : 'after 3000' command is executed.
+15:02:36 INFO  : 'targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77FB1A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77FB1A-13722093-0"}' command is executed.
+15:02:37 INFO  : Device configured successfully with "/home/dev/Projects/Plantonomy/Software/tutorial/_ide/bitstream/tutorial_bd_wrapper.bit"
+15:02:37 INFO  : Context for 'APU' is selected.
+15:02:37 INFO  : Hardware design and registers information is loaded from '/home/dev/Projects/Plantonomy/Software/tutorial_bd_wrapper/export/tutorial_bd_wrapper/hw/tutorial_bd_wrapper.xsa'.
+15:02:37 INFO  : 'configparams force-mem-access 1' command is executed.
+15:02:37 INFO  : Context for 'APU' is selected.
+15:02:37 INFO  : Sourcing of '/home/dev/Projects/Plantonomy/Software/tutorial/_ide/psinit/ps7_init.tcl' is done.
+15:02:37 INFO  : 'ps7_init' command is executed.
+15:02:37 INFO  : 'ps7_post_config' command is executed.
+15:02:37 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:02:38 INFO  : The application '/home/dev/Projects/Plantonomy/Software/tutorial/Debug/tutorial.elf' is downloaded to processor 'ps7_cortexa9_0'.
+15:02:38 INFO  : 'configparams force-mem-access 0' command is executed.
+15:02:38 INFO  : ----------------XSDB Script----------------
+connect -url tcp:127.0.0.1:3121
+targets -set -nocase -filter {name =~"APU*"}
+rst -system
+after 3000
+targets -set -filter {jtag_cable_name =~ "Digilent Zybo Z7 210351A77FB1A" && level==0 && jtag_device_ctx=="jsn-Zybo Z7-210351A77FB1A-13722093-0"}
+fpga -file /home/dev/Projects/Plantonomy/Software/tutorial/_ide/bitstream/tutorial_bd_wrapper.bit
+targets -set -nocase -filter {name =~"APU*"}
+loadhw -hw /home/dev/Projects/Plantonomy/Software/tutorial_bd_wrapper/export/tutorial_bd_wrapper/hw/tutorial_bd_wrapper.xsa -mem-ranges [list {0x40000000 0xbfffffff}] -regs
+configparams force-mem-access 1
+targets -set -nocase -filter {name =~"APU*"}
+source /home/dev/Projects/Plantonomy/Software/tutorial/_ide/psinit/ps7_init.tcl
+ps7_init
+ps7_post_config
+targets -set -nocase -filter {name =~ "*A9*#0"}
+dow /home/dev/Projects/Plantonomy/Software/tutorial/Debug/tutorial.elf
+configparams force-mem-access 0
+----------------End of Script----------------
+
+15:02:38 INFO  : Context for processor 'ps7_cortexa9_0' is selected.
+15:02:38 INFO  : 'con' command is executed.
+15:02:38 INFO  : ----------------XSDB Script (After Launch)----------------
+targets -set -nocase -filter {name =~ "*A9*#0"}
+con
+----------------End of Script----------------
+
+15:02:38 INFO  : Launch script is exported to file '/home/dev/Projects/Plantonomy/Software/tutorial_system/_ide/scripts/systemdebugger_tutorial_system_standalone.tcl'
+15:03:08 INFO  : Disconnected from the channel tcfchan#3.
