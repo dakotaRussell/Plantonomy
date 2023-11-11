@@ -21,3 +21,19 @@ domain active {standalone_ps7_cortexa9_0}
 platform generate -quick
 platform generate
 platform generate
+platform active {tutorial_bd_wrapper}
+platform active {tutorial_bd_wrapper}
+domain active {zynq_fsbl}
+bsp reload
+domain active {standalone_ps7_cortexa9_0}
+bsp reload
+bsp setlib -name lwip213 -ver 1.1
+bsp setlib -name xiltimer -ver 1.3
+bsp write
+bsp reload
+catch {bsp regenerate}
+platform clean
+platform generate
+platform generate
+platform clean
+platform generate
